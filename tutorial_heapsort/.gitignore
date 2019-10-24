@@ -1,0 +1,11 @@
+# Ignore everything
+/*
+
+# Not these directories
+#!folder/
+
+# Not these files
+!.gitignore
+!heap.js
+!heapsort.html
+!test.js

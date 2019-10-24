@@ -1,76 +1,3 @@
-/*|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
-|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
-||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
-/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
-
-    Heap Sort Stencil | JavaScript support functions
-
-    Quick JavaScript Code-by-Example Tutorial 
-     
-    @author ohseejay / https://github.com/ohseejay
-                     / https://bitbucket.org/ohseejay
-
-    Chad Jenkins
-    Laboratory for Perception RObotics and Grounded REasoning Systems
-    University of Michigan
-
-    License: Michigan Honor License 
-
-|\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/|
-||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/
-/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\
-\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/||\/*/
-
-
-// create empty object 
-minheaper = {}; 
-
-// define insert function for min binary heap
-function minheap_insert(heap, new_element) {
-    // STENCIL: implement your min binary heap insert operation
-    //Insert the new_element to the end of the array
-    heap.push(new_element);
-    //Make heap a min cinary heap
-    buildMinHeap(heap);
-    return heap;
-}
-
-// assign insert function within minheaper object
-minheaper.insert = minheap_insert;
-/* Note: because the minheap_insert function is an object, we can assign 
-      a reference to the function within the minheap object, which can be called
-      as minheap.insert
-*/
-
-// define extract function for min binary heap
-function minheap_extract(heap) {
-    
-    // STENCIL: implement your min binary heap extract operation
-    var res = NaN;
-    if (heap.heapSize < 1)
-    {
-        console.log('error: "heap underflow"');
-    }
-    else
-    {
-        //Step 1: build min heap from an unordered array 
-        buildMinHeap(heap);
-        //Take out the smallest element
-        res = heap[0];
-        //Swap the first and the last element of the ordered array
-        swap(heap);
-        //Discard the last element from the array 
-        heap.pop();
-    }
-    return res;
-}
-
-// assign extract function within minheaper object
-
-    // STENCIL: ensure extract method is within minheaper object
-    minheaper.extract = minheap_extract;
-
-
 // return the index of parent node for the node of index i 
 function parentIndex(i)
 {
@@ -179,7 +106,6 @@ for (j=0; j<Am.length; j++)
 //From an array A, create a min-heap, then order them from the smallest to the biggest
 function heapSort(A)
 {
-    //extractValue;
     res = [];
     console.log("---heapSort start---")
     //Step 1: build min heap from an unordered array A
@@ -190,8 +116,6 @@ function heapSort(A)
     //Run this loop unless the heap is empty
     while (A.length > 0)
     {
-        //The min value to be extracted at each iteration
-        //extractValue = A[0];
         //Save the min element into the res array
         res.push(A[0]);
         //Swap the first and the last element of the ordered array
@@ -213,12 +137,10 @@ function heapSort(A)
     }
     return res;
 }
-/*
+
 //Check the result of heapSort(A)
 Am = heapSort([10,9,8,4,1,3,2,6,7]);
 for (j=0; j<Am.length; j++)
 {
     console.log(Am[j]);
 }
-*/
-
